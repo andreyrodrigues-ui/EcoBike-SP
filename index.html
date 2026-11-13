@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoBike SP · Aluguel de bikes por hora</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚲</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header com logo, navegação e botão de tema -->
+  <header>
+    <a href="#" class="logo">
+      <span class="logo-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="5.5" cy="17.5" r="3.5"/>
+          <circle cx="18.5" cy="17.5" r="3.5"/>
+          <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"/>
+        </svg>
+      </span>
+      <span>EcoBike<span class="logo-sp">SP</span></span>
+    </a>
+
+    <nav aria-label="Navegação principal">
+      <a href="#planos">Planos</a>
+      <a href="#estacoes">Estações</a>
+      <a href="#simulador">Simulador</a>
+      <a href="#reservas">Reservas</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="status-pill"><span class="pulse-dot"></span> 42 estações ativas</span>
+      <button id="btnTema" type="button" aria-label="Alternar modo escuro">🌙 Modo escuro</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Seção Hero -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">MOBILIDADE ZERO EMISSÃO · SÃO PAULO</span>
+          <h1>Sua cidade no ritmo <span>elétrico e sustentável.</span></h1>
+          <p>Desbloqueie bicicletas urbanas, elétricas e cargo em segundos pelas principais estações de SP. Sem trânsito, sem poluição e com 10% OFF acima de 5 horas.</p>
+          <div class="hero-cta-group">
+            <a href="#simulador" class="btn btn-primary">Simular agora →</a>
+            <a href="#planos" class="btn btn-ghost">Explorar modelos</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <strong>+18 mil</strong>
+              <span>viagens/mês</span>
+            </div>
+            <div>
+              <strong>10% OFF</strong>
+              <span>acima de 5 horas</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>estações automáticas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="telemetry-card">
+            <div class="telemetry-top">
+              <span class="badge-volt">⚡ FROTA 2026</span>
+              <span class="mono-tag">GPS · ATIVO</span>
+            </div>
+
+            <div class="bike-showcase">
+              <svg viewBox="0 0 360 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="82" cy="142" r="44" stroke="currentColor" stroke-width="6"/>
+                <circle cx="82" cy="142" r="10" fill="currentColor"/>
+                <circle cx="278" cy="142" r="44" stroke="currentColor" stroke-width="6"/>
+                <circle cx="278" cy="142" r="10" fill="currentColor"/>
+                <path d="M82 142L148 76H226L278 142M148 76L176 142H82M226 76L176 142" stroke="var(--cor-primaria)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M136 56H164" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+                <path d="M148 76L144 56" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+                <path d="M226 76L216 46H238" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="166" y="96" width="38" height="12" rx="6" transform="rotate(-24 166 96)" fill="var(--cor-volt)"/>
+              </svg>
+            </div>
+
+            <div class="telemetry-metrics">
+              <div class="t-box">
+                <span>Autonomia Elétrica</span>
+                <strong>65 km</strong>
+              </div>
+              <div class="t-box">
+                <span>CO₂ Evitado</span>
+                <strong>-2,4 kg/h</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Planos -->
+    <section id="planos" class="secao">
+      <div class="secao-header">
+        <span class="eyebrow">ESCOLHA SUA BIKE</span>
+        <h2>Planos flexíveis por hora</h2>
+        <p>Pague apenas pelo tempo que pedalar. Aluguéis acima de 5 horas recebem 10% de desconto automaticamente.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-top">
+            <span class="plan-tag">DIA A DIA</span>
+            <span class="plan-icon">🚲</span>
+          </div>
+          <h3>Urbana</h3>
+          <p class="plan-desc">Leve, ágil e perfeita para ciclovias, parques e deslocamentos rápidos entre estações.</p>
+          <div class="preco">R$ 12 <span>/ hora</span></div>
+          <ul class="plan-specs">
+            <li>✓ Câmbio de 7 marchas</li>
+            <li>✓ Cesta frontal integrada</li>
+            <li>✓ Iluminação LED automática</li>
+          </ul>
+          <button type="button" class="btn btn-outline btn-selecionar" data-tipo="urbana">Simular Urbana</button>
+        </article>
+
+        <article class="card destaque">
+          <div class="card-top">
+            <span class="plan-tag tag-destaque">MAIS POPULAR</span>
+            <span class="plan-icon">⚡</span>
+          </div>
+          <h3>Elétrica</h3>
+          <p class="plan-desc">Pedal assistido inteligente para vencer as ladeiras de São Paulo sem suar a camisa.</p>
+          <div class="preco">R$ 20 <span>/ hora</span></div>
+          <ul class="plan-specs">
+            <li>✓ Motor 350W até 25 km/h</li>
+            <li>✓ Bateria para até 65 km</li>
+            <li>✓ Painel digital no guidão</li>
+          </ul>
+          <button type="button" class="btn btn-primary btn-selecionar" data-tipo="eletrica">Simular Elétrica</button>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="plan-tag">ALTA CAPACIDADE</span>
+            <span class="plan-icon">📦</span>
+          </div>
+          <h3>Cargo</h3>
+          <p class="plan-desc">Estrutura reforçada com bagageiro estendido para compras do mês, pets ou entregas.</p>
+          <div class="preco">R$ 25 <span>/ hora</span></div>
+          <ul class="plan-specs">
+            <li>✓ Suporta até 80 kg de carga</li>
+            <li>✓ Assistência elétrica extra</li>
+            <li>✓ Cavalete duplo de estabilidade</li>
+          </ul>
+          <button type="button" class="btn btn-outline btn-selecionar" data-tipo="cargo">Simular Cargo</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção Estações -->
+    <section id="estacoes" class="secao">
+      <div class="secao-header">
+        <span class="eyebrow">REDE EM TEMPO REAL</span>
+        <h2>Principais estações em São Paulo</h2>
+        <p>Selecione um ponto de retirada para vincular à sua pré-reserva.</p>
+      </div>
+
+      <div class="estacoes-grid">
+        <button type="button" class="estacao-card ativa" data-estacao="Av. Paulista · Metrô Trianon">
+          <div class="estacao-head">
+            <strong>Av. Paulista</strong>
+            <span class="vagas-ok">14 bikes</span>
+          </div>
+          <span>Próximo ao Metrô Trianon-Masp</span>
+        </button>
+
+        <button type="button" class="estacao-card" data-estacao="Parque Ibirapuera · Portão 3">
+          <div class="estacao-head">
+            <strong>Parque Ibirapuera</strong>
+            <span class="vagas-ok">19 bikes</span>
+          </div>
+          <span>Entrada Portão 3 · Ciclovia</span>
+        </button>
+
+        <button type="button" class="estacao-card" data-estacao="Faria Lima · Largo da Batata">
+          <div class="estacao-head">
+            <strong>Faria Lima</strong>
+            <span class="vagas-ok">9 bikes</span>
+          </div>
+          <span>Largo da Batata · Pinheiros</span>
+        </button>
+
+        <button type="button" class="estacao-card" data-estacao="Vila Madalena · Beco do Batman">
+          <div class="estacao-head">
+            <strong>Vila Madalena</strong>
+            <span class="vagas-baixa">4 bikes</span>
+          </div>
+          <span>Rua Harmonia · Praça</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Seção Simulador -->
+    <section id="simulador" class="secao">
+      <div class="secao-header">
+        <span class="eyebrow">TRANSPARÊNCIA TOTAL</span>
+        <h2>Simulador de Preço</h2>
+        <p>Calcule o valor exato da sua viagem e veja quanto você economiza no pacote estendido.</p>
+      </div>
+
+      <div class="simulador-wrapper">
+        <div class="form-box">
+          <div class="campo">
+            <label for="horas">Tempo de uso (horas):</label>
+            <input type="number" id="horas" min="1" max="72" value="3" placeholder="Ex: 6">
+            <div class="chips-horas" role="group" aria-label="Atalhos de horas">
+              <button type="button" class="chip-hora" data-h="2">2h</button>
+              <button type="button" class="chip-hora" data-h="4">4h</button>
+              <button type="button" class="chip-hora" data-h="6">6h (-10%)</button>
+              <button type="button" class="chip-hora" data-h="10">10h (-10%)</button>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="tipo">Modelo da bicicleta:</label>
+            <select id="tipo">
+              <option value="urbana">Urbana — R$ 12,00 / hora</option>
+              <option value="eletrica" selected>Elétrica — R$ 20,00 / hora</option>
+              <option value="cargo">Cargo — R$ 25,00 / hora</option>
+            </select>
+          </div>
+
+          <button type="button" id="calcular" class="btn btn-primary">Calcular</button>
+        </div>
+
+        <div class="receipt-box">
+          <span class="receipt-label">RESUMO ESTIMADO</span>
+          <div id="resultado" class="resultado-box">R$ 60,00</div>
+          <div id="detalhes-simulacao" class="detalhes-simulacao">
+            <span>🌱 Economia estimada de <strong>7,2 kg de CO₂</strong> vs. carro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Pré-reservas -->
+    <section id="reservas" class="secao">
+      <div class="secao-header">
+        <span class="eyebrow">GARANTA SUA BIKE</span>
+        <h2>Fila de Pré-reservas</h2>
+        <p>Adicione seu nome na lista prioritária da estação selecionada.</p>
+      </div>
+
+      <div class="reservas-wrapper">
+        <div class="form-box">
+          <div class="estacao-selecionada-banner">
+            📍 Estação atual: <strong id="estacao-atual-label">Av. Paulista · Metrô Trianon</strong>
+          </div>
+
+          <div class="campo">
+            <label for="nome">Nome do ciclista:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo">
+          </div>
+
+          <button type="button" id="adicionar" class="btn btn-primary">Adicionar</button>
+        </div>
+
+        <div class="lista-container">
+          <div class="lista-header">
+            <h3>Ciclistas na fila</h3>
+            <span class="contador-badge"><span id="total">0</span> reservas</span>
+          </div>
+          <ul id="lista" aria-live="polite"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>EcoBike SP</strong> · Mobilidade urbana sustentável em São Paulo.
+      </div>
+      <div>
+        Contato: <a href="mailto:marina@ecobikesp.com.br">marina@ecobikesp.com.br</a> · Morvan Dev Studio © 2026
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
